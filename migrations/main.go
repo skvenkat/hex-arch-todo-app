@@ -5,7 +5,6 @@ import (
 	"embed"
 	"fmt"
 
-	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/mysql"
 	"github.com/skvenkat/hex-arch-todo-app/helpers"
 )
@@ -16,6 +15,7 @@ var (
 )
 
 func main() {
+	fmt.Println("Migration process initated...")
 	db, err := sql.Open("mysql", helpers.BuildMysqlConnUrl())
 	if err != nil {
 		panic(err)
@@ -48,7 +48,6 @@ func main() {
 	// Run all up migrations
 	//applied, err := migration.Migrate(driver, embedSource, migration.Up, 0)
 	
-	v4.
 	m, err := v4.NewWithDatabaseInstance(
 		"file:///sql/*.sql", "mysql", driver,
 	)
@@ -58,4 +57,5 @@ func main() {
 	} else {
 		fmt.Println(fmt.Sprintf("Last applied %d: ", m))
 	}
+	fmt.Println("Migration Process Ended...")
 }
