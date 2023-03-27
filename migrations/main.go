@@ -5,6 +5,7 @@ import (
 	"embed"
 	"fmt"
 
+	v4 "github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/mysql"
 	"github.com/skvenkat/hex-arch-todo-app/helpers"
 )
@@ -33,7 +34,7 @@ func main() {
 	} else {
 		fmt.Println("List of Migrations found :")
 		for _, d := range dirs {
-			fmt.Println(fmt.Sprintf(" - %s", d.Name()))
+			fmt.Sprintf(" - %s\n", d.Name())
 		}
 		fmt.Println("End of List")
 	}
