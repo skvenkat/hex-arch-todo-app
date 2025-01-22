@@ -1,4 +1,4 @@
-FROM golang:1.20-alpine
+FROM golang:1.24rc2-alpine
 
 WORKDIR /opt/todo-app/
 
